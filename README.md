@@ -1,2 +1,3 @@
 # vehicle_ads
-Vehicles advertisements project with Render
+Proyecto de anuncios de vehiculos. 
+Podemos observar dos diferentes graficos que representan 
