@@ -2,15 +2,27 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-st.header('Lanzar una moneda')
-
-st.write('Esta aplicación aún no es funcional. En construcción.')
+st.header('Vehicles advertisement')
+st.write('Selecciona el grafico deseado.')
 
 
 car_data = pd.read_csv('datasets/cars_us.csv') # leer los datos
-fig = px.histogram(car_data, x="odometer") # crear un histograma
-fig.show() # crear gráfico de dispersión
+#hist_button = st.button('Construir histograma')
+hist_check = st.checkbox('Construir histograma')
+if hist_check: # al hacer clic en el botón
+    # escribir un mensaje
+    st.write('Creación de un histograma para el conjunto de datos de los precios de coches')    
+    # crear un histograma
+    fig = px.histogram(car_data, x="price")
+    # mostrar un gráfico Plotly interactivo
+    st.plotly_chart(fig, use_container_width=True)
 
-#car_data = pd.read_csv('datasets\vehicles_us.csv') # leer los datos
-#fig = px.scatter(car_data, x="odometer", y="price") # crear un gráfico de dispersión
-#fig.show() # crear gráfico de dispersión
+#scatter_button = st.button('Construir diagrama de dispersion')
+scatter_check = st.checkbox('Construir diagrama de dispersion')
+if scatter_check: # al hacer clic en el botón
+    # escribir un mensaje
+    st.write('Creación de un diagrama de dispersion para el conjunto de datos los precios de venta de coches')    
+    # crear un histograma
+    fig1 = px.scatter(car_data, x="price")
+    # mostrar un gráfico Plotly interactivo
+    st.plotly_chart(fig1, use_container_width=True)
